@@ -18,12 +18,6 @@ public class MainPage  {
     
     public void setDriverGeco() {
     	 System.setProperty("webdriver.gecko.driver", "/Users/tatianaryzhkova/Downloads/geckodriver2");
-//        DesiredCapabilities capabilities=DesiredCapabilities.firefox();
-//        capabilities.setCapability("marionette", true);
-//        driver = new FirefoxDriver(capabilities);
-//   DesiredCapabilities capabilities=DesiredCapabilities.chrome();
-//        capabilities.setCapability("marionette", true);
-//      driver = new ChromeDriver(capabilities);
         driver = new FirefoxDriver();
         driver.get(MAINPAGE_URL);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

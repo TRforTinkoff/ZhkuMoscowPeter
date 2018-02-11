@@ -3,10 +3,8 @@ package core;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
@@ -22,6 +20,7 @@ public class MainPageTest {
 	private static String cityStPetersburg = "Санкт-Петербурге";
 	private static String payerCodeInvalid = "123";
 	private static String regionStPetersburg = "Санкт-Петербург";
+	private static String payerCodeErrorMessage = "Поле неправильно заполнено";
 
 	
 //        	@BeforeMethod(alwaysRun = true)
@@ -68,7 +67,7 @@ public class MainPageTest {
 	    onMainPage.kommunalniePlatezhiLinkClick();
 	    onMainPage.clickZhkuMoscowLink();
 	    onMainPage.enterInvalidDataEH(payerCodeInvalid);
-	    AssertJUnit.assertTrue(onMainPage.getRegion().toString().contains(cityMoscow)); }
+	    AssertJUnit.assertTrue(onMainPage.getZhkuFieldErrorMessage().toString().contains(payerCodeErrorMessage)); }
     
   //пункт 13
     @Test
@@ -76,8 +75,8 @@ public class MainPageTest {
 	    MainPage onMainPage = new MainPage(driver);
 	    onMainPage.navigateToMainPage();
 	    onMainPage.paymentLinkClick();
-	    onMainPage.kommunalniePlatezhiLinkClick();
-	    onMainPage.enterStPetersburgRegion(regionStPetersburg);    }
+	    onMainPage.changeRegionMscStPet(); }
+	    // onMainPage.enterStPetersburgRegion(regionStPetersburg);    }
 
  
     @AfterTest(alwaysRun = true)
