@@ -3,6 +3,7 @@ package core;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -123,6 +124,10 @@ public class MainPage  {
      
 	 public void paymentLinkClick() {
 		  paymentsLinkGlobal.click(); }
+	 
+	 public void paymentLinkClickActions() {
+	 new Actions(driver).sendKeys(Keys.ESCAPE).build().perform();
+	 paymentsLinkGlobal.click(); }
 
      public void clickPaymentsLink() {
        if(paymentsLinkGlobal.isDisplayed()) {

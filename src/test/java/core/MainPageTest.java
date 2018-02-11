@@ -44,6 +44,8 @@ public class MainPageTest {
 //  dc.setCapability(FirefoxDriver.PROFILE, profile);
 //  profile.setPreference("dom.webnotifications.enabled", false);
   driver = new FirefoxDriver(); }
+	
+	
 	 	
 	
 	@Test
@@ -65,6 +67,8 @@ public class MainPageTest {
 		 onMainPage.getPageTitle().toString().contains(providersPageTitle); }
 	
 
+	
+	
  	//пункт 1-6
     @Test
     public void payZhkuMoscow() {
@@ -76,6 +80,15 @@ public class MainPageTest {
 	    AssertJUnit.assertTrue(onMainPage.getRegion().toString().contains(cityMoscow));
 	    onMainPage.clickZhkuMoscowLink();
 	    onMainPage.payerCodePresent(); }
+    
+    
+    //working around WebPush Notifications
+    @Test
+    public void payZhkuMoscowActions() {
+	    MainPage onMainPage = new MainPage(driver);
+	    onMainPage.navigateToMainPage();
+	    onMainPage.paymentLinkClickActions();
+	    AssertJUnit.assertTrue(onMainPage.getRegion().toString().contains(cityMoscow)); }
     
   //пункт 7
     @Test
