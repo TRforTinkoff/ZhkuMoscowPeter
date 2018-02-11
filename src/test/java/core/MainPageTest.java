@@ -14,7 +14,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 public class MainPageTest {
-	private WebDriver driver;
+	
+	WebDriver driver;
 	
 	//to be transferred to csv file
 	private static String startPageTitle = "Лучший интернет-банк. Кредит наличными и кредитные карты онлайн";
@@ -29,12 +30,15 @@ public class MainPageTest {
 
 	
 
-//	
+	
 	@BeforeTest(alwaysRun = true)
-	public void driverSetUp() {	 
-	 	 System.setProperty("webdriver.gecko.driver", "/Users/tatianaryzhkova/Downloads/geckodriver2"); 	 
-	 	driver = new FirefoxDriver();
-	 	driver.get("https://www.tinkoff.ru");	 }
+	public void driverSetUp() {	
+  System.setProperty("webdriver.gecko.driver", "/Users/tatianaryzhkova/Downloads/geckodriver2");
+//  DesiredCapabilities dc = DesiredCapabilities.firefox();
+//  FirefoxProfile profile = new FirefoxProfile();
+//  dc.setCapability(FirefoxDriver.PROFILE, profile);
+//  profile.setPreference("dom.webnotifications.enabled", false);
+  driver = new FirefoxDriver(); }
 	 
 	
 	@Test
@@ -42,6 +46,19 @@ public class MainPageTest {
 		 MainPage onMainPage = new MainPage(driver);
 		 onMainPage.navigateToMainPage();
 		 onMainPage.getPageTitle().toString().contains(startPageTitle); }
+	
+	@Test
+	public void verifyPaymentPageTitle() {
+		 MainPage onMainPage = new MainPage(driver);
+		 onMainPage.navigateToPaymentPage();
+		 onMainPage.getPageTitle().toString().contains(paymentPageTitle); }
+	
+	@Test
+	public void verifyZhKKhPageTitle() {
+		 MainPage onMainPage = new MainPage(driver);
+		 onMainPage.navigateToPaymentPage();
+		 onMainPage.getPageTitle().toString().contains(providersPageTitle); }
+	
 
  	//пункт 1-6
     @Test

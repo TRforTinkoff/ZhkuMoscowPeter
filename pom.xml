@@ -42,6 +42,12 @@
  	 
  	 <!-- solving SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder error -->
  	 
+ 	    <dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>24.0-jre</version>
+         </dependency>
+ 	 
  	<dependency>
  	<groupId>org.seleniumhq.selenium</groupId>
  	<artifactId>selenium-java</artifactId>

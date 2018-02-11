@@ -17,7 +17,9 @@ public class MainPage  {
 	
 	WebDriver driver; 
     
-    public static final String MAINPAGE_URL="https://www.tinkoff.ru/";  
+    public static final String MAINPAGE_URI="https://www.tinkoff.ru/";  
+    public static final String PAYMENTPAGE_URI="https://www.tinkoff.ru/payments/"; 
+    public static final String ZhKKhPAGE_URI="https://www.tinkoff.ru/payments/categories/kommunalnie-platezhi/";
 
     
         // constructor
@@ -104,7 +106,13 @@ public class MainPage  {
         return    pageTitle.getText(); }
     
      public void navigateToMainPage() {
-        driver.navigate().to(MAINPAGE_URL); }
+        driver.navigate().to(MAINPAGE_URI); }
+     
+     public void navigateToPaymentPage() {
+         driver.navigate().to(PAYMENTPAGE_URI); }
+     
+     public void navigateToZhKKhPage() {
+         driver.navigate().to(ZhKKhPAGE_URI); }
     
 	 public void paymentLinkClick() {
 		  paymentsLinkGlobal.click(); }
