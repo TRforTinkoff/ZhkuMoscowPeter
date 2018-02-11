@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -114,6 +115,12 @@ public class MainPage  {
      public void navigateToZhKKhPage() {
          driver.navigate().to(ZhKKhPAGE_URI); }
     
+     public void paymentPageAction() {
+         driver.navigate().to(PAYMENTPAGE_URI);
+         new Actions(driver).moveToElement(kommunalniePlatezhiLink).click().perform();
+     }
+     
+     
 	 public void paymentLinkClick() {
 		  paymentsLinkGlobal.click(); }
 

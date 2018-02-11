@@ -5,10 +5,15 @@ import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -39,7 +44,7 @@ public class MainPageTest {
 //  dc.setCapability(FirefoxDriver.PROFILE, profile);
 //  profile.setPreference("dom.webnotifications.enabled", false);
   driver = new FirefoxDriver(); }
-	 
+	 	
 	
 	@Test
 	public void verifyStartPageTitle() {
@@ -65,8 +70,9 @@ public class MainPageTest {
     public void payZhkuMoscow() {
 	    MainPage onMainPage = new MainPage(driver);
 	    onMainPage.navigateToMainPage();
-	    onMainPage.paymentLinkClick();
-	    onMainPage.kommunalniePlatezhiLinkClick();
+//	    onMainPage.paymentLinkClick();
+//	    onMainPage.kommunalniePlatezhiLinkClick();
+	    onMainPage.paymentPageAction();
 	    AssertJUnit.assertTrue(onMainPage.getRegion().toString().contains(cityMoscow));
 	    onMainPage.clickZhkuMoscowLink();
 	    onMainPage.payerCodePresent(); }
