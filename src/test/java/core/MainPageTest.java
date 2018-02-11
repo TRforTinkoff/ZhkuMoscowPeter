@@ -3,13 +3,18 @@ package core;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 public class MainPageTest {
-	WebDriver driver;
+	private WebDriver driver;
 	
 	//to be transferred to csv file
 	private static String startPageTitle = "Лучший интернет-банк. Кредит наличными и кредитные карты онлайн";
@@ -23,22 +28,13 @@ public class MainPageTest {
 	private static String payerCodeErrorMessage = "Поле неправильно заполнено";
 
 	
-//        	@BeforeMethod(alwaysRun = true)
-//	    public void driverSetupGecko() {
-//		 MainPage onMainPage = new MainPage(driver);
-//	    onMainPage.setDriverGeco();
-//        System.out.println("Gecko driver was setup"); }
+
 //	
-	@BeforeMethod(alwaysRun = true)
-	public void driverSetUp() {
-//	 	 
-        //DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        //capabilities.setCapability("marionette", true);
-	 	//WebDriver dr = new FirefoxDriver(capabilities);
-//	 	 
+	@BeforeTest(alwaysRun = true)
+	public void driverSetUp() {	 
 	 	 System.setProperty("webdriver.gecko.driver", "/Users/tatianaryzhkova/Downloads/geckodriver2"); 	 
-	 	WebDriver dr = new FirefoxDriver();
-	 	dr.get("https://www.tinkoff.ru");	 }
+	 	driver = new FirefoxDriver();
+	 	driver.get("https://www.tinkoff.ru");	 }
 	 
 	
 	@Test

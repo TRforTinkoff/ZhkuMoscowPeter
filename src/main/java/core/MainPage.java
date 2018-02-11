@@ -1,10 +1,13 @@
 package core;
 
 import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -14,15 +17,8 @@ public class MainPage  {
 	
 	WebDriver driver; 
     
-    public static final String MAINPAGE_URL="https://www.tinkoff.ru/";    
-    
-    public void setDriverGeco() {
-    	 System.setProperty("webdriver.gecko.driver", "/Users/tatianaryzhkova/Downloads/geckodriver2");
-        driver = new FirefoxDriver();
-        driver.get(MAINPAGE_URL);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        System.out.println("Gecko driver for method was setup"); }
+    public static final String MAINPAGE_URL="https://www.tinkoff.ru/";  
+
     
         // constructor
 	public MainPage (WebDriver driver) {
